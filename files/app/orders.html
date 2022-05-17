@@ -1,0 +1,103 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Orders{% endblock title %}
+
+{% block page_css %}
+<!--Custom CSS-->
+<link rel="stylesheet" href="{% static 'app/css/orders.css' %}">
+{% endblock page_css %}
+
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <h4>Welcome <span class="text-capitalize">{{ user.first_name }}</span></h4>
+        <div class="col-sm-2 border-end">
+            <hr>
+            <ul class="list-unstyled">
+                <li class="d-grid"><a href="{% url 'profile' %}" class="btn">Profile</a></li>
+                <li class="d-grid"><a href="{% url 'address' %}" class="btn">Address</a></li>
+                <li class="d-grid"><a href="{% url 'orders' %}" class="btn btn-primary">Orders</a></li>
+                <li class="d-grid"><a href="{% url 'changepassword' %}" class="btn">Password</a></li>
+                <li class="d-grid"><a href="{% url 'logout' %}" class="btn btn-danger">Logout</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-9">
+            <div class="card">
+                <div class="card-header">
+                    <h4 style="text-align: left;">Order Items</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <!-- order one -->
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="item">
+                                        <div class="text-center">
+                                            <img src="{% static 'app/images/home/products/shoes.webp' %}"
+                                                class="img-fluid img-thumbnail shadow-sm" height="150" width="150">
+                                        </div>
+                                        <div class="card_right">
+                                            <div class="detail">
+                                                <div class="brand_name">MACTREE</div>
+                                                <div class="product_title">Lace Up For Men (Black)</div>
+                                                <div class="company_logo"><img src="{% static 'app/images/logo/nlogo3.png' %}"
+                                                        style="box-shadow: none;" alt=""></div>
+                                                <div class="product_price">
+                                                    <span class="selling_price"><strong><span>&#8377;</span>1,088
+                                                        </strong></span> &nbsp;
+                                                    <span class="actual_price"><strike><span>&#8377;</span>2,899</strike></span>
+                                                    &nbsp;
+                                                    <span class="off_upto"><strong>62% off </strong></span>
+                                                </div>
+                                                <label for="quantity">Quantity:</label>
+                                                <span id="quantity">3</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- order 2 -->
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="item">
+                                        <div class="text-center">
+                                            <img src="{% static 'app/images/home/products/shoes.webp' %}"
+                                                class="img-fluid img-thumbnail shadow-sm" height="150" width="150">
+                                        </div>
+                                        <div class="card_right">
+                                            <div class="detail">
+                                                <div class="brand_name">MACTREE</div>
+                                                <div class="product_title">Lace Up For Men (Black)</div>
+                                                <div class="company_logo"><img src="{% static 'app/images/logo/nlogo3.png' %}"
+                                                        style="box-shadow: none;" alt=""></div>
+                                                <div class="product_price">
+                                                    <span class="selling_price"><strong><span>&#8377;</span>1,088
+                                                        </strong></span> &nbsp;
+                                                    <span class="actual_price"><strike><span>&#8377;</span>2,899</strike></span>
+                                                    &nbsp;
+                                                    <span class="off_upto"><strong>62% off </strong></span>
+                                                </div>
+                                                <label for="quantity">Quantity:</label>
+                                                <span id="quantity">3</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+
+
+{% block page_js %}
+{% endblock page_js %}

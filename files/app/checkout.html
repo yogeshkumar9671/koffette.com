@@ -1,0 +1,87 @@
+{% extends 'app/base.html' %} 
+{% load static %} 
+{% block title %}Buy Now{% endblock title %}
+
+{% block page_css %}
+<style>
+    .detail {
+        padding-left: 10px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    
+    .detail>div {
+        margin-top: 5px;
+    }
+    
+    .company_logo img {
+        display: flex;
+        width: 100%;
+    }
+    
+    .brand_name {
+        font-weight: bold;
+    }
+</style>
+{% endblock page_css %} 
+
+{% block content %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-sm-6 mb-3">
+            <h4>Order Summary</h4>
+            <hr>
+            {% for p in products %}
+            <div class="card mb-2 pt-3 pb-3 pl-4" style="padding-left: 20px;">
+                <h5>Product: {{ forloop.counter }}</h5>
+                <div class="detail">
+                    <div class="brand_name">{{ p.brand_name }}</div>
+                    <div class="product_title">{{ p.product_title }}</div>
+                    <div class="product_price">
+                        <p>Quantity: &nbsp;2</p>
+                        <span class="selling_price"><strong>Price: &nbsp;<span>&#8377;</span>{{ p.selling_price }}</strong>
+                        </span> &nbsp;
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <small><strong>Term and Condition:</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, ullam saepe! Iure optio repellat dolor velit, minus rem. Facilis cumque neque numquam laboriosam, accusantium adipisci nisi nihil in et quis?</small>
+        </div>
+        <div class="col-sm-4 offset-sm-1">
+            <h4>Select Shipping Address</h4>
+            <hr>
+            <form action="">
+                <!-- address 1  -->
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Yogesh Kumar</h5>
+                        <p>Ferozepur Jhirka, Haryana</p>
+                    </div>
+                </div>
+                <div class="form-check mt-2 mb-2">
+                    <input class="form-check-input" type="radio" name="address" id="address1">
+                    <label for="address1" class="form-check-label fw-bold">Address: 1</label>
+                </div>
+
+                <!-- address 2  -->
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Yogesh Kumar</h5>
+                        <p>B-32 Noida, Up</p>
+                    </div>
+                </div>
+                <div class="form-check mt-2 mb-2">
+                    <input class="form-check-input" type="radio" name="address" id="address2">
+                    <label for="address2" class="form-check-label fw-bold">Address: 2</label>
+                </div>
+
+                <div class="text-end">
+                    <button type="submit" class="btn btn-warning mt-3 px-5 fw-bold">Countinue</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %} 
+{% block page_js %} 
+{% endblock page_js %}

@@ -1,0 +1,63 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Addresses{% endblock title %}
+
+{% block page_css %}
+<style>
+    .card-body{
+        text-align: left;
+    }
+    .card-body p{
+        margin: 5px;
+    }
+    .card-body hr{
+        margin-top: 5px;
+        margin-bottom: 7px;
+    }
+</style>
+{% endblock page_css %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <h4>Welcome <span class="text-capitalize">{{ user.first_name }}</span></h4>
+        <div class="col-sm-2 border-end">
+            <hr>
+            <ul class="list-unstyled">
+                <li class="d-grid"><a href="{% url 'profile' %}" class="btn">Profile</a></li>
+                <li class="d-grid"><a href="{% url 'address' %}" class="btn btn-primary">Address</a></li>
+                <li class="d-grid"><a href="{% url 'orders' %}" class="btn">Orders</a></li>
+                <li class="d-grid"><a href="{% url 'changepassword' %}" class="btn">Password</a></li>
+                <li class="d-grid"><a href="{% url 'logout' %}" class="btn btn-danger">Logout</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-9 offset-1">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        {% for add in address %}
+                        <div class="col-sm-4 mb-2">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5>Address: {{ forloop.counter }}</h5>
+                                    <hr>
+                                    <p>Name: {{ add.name }}</p>
+                                    <p>Locality: {{ add.locality }}</p>
+                                    <p>City: {{ add.city }}</p>
+                                    <p>State: {{ add.get_state_display }}</p>
+                                    <p>Pincode: {{ add.pincode }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+
+{% block page_js %}
+{% endblock page_js %}
